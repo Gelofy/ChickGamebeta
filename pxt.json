@@ -1,5 +1,5 @@
 {
-    "name": "ChickGame2-3",
+    "name": "ChickGame",
     "dependencies": {
         "device": "*",
         "controller": "*",
