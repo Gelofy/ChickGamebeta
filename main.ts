@@ -174,29 +174,39 @@ controller.combos.attachCombo("AABBA", function () {
         AABBA = 1
     }
 })
+controller.combos.attachCombo("uuddaa", function () {
+    if (UUDDAA == 0) {
+        music.baDing.play()
+        info.changeScoreBy(1)
+        UUDDAA = 1
+    }
+})
 controller.anyButton.onEvent(ControllerButtonEvent.Pressed, function () {
     start = 1
     for (let index = 0; index < 90; index++) {
-        Ground.x += -2
+        Ground2.x += -2
         pause(10)
     }
 })
-let meteor2: Sprite = null
 let meteor: Sprite = null
+let meteor_3: Sprite = null
 let Random2 = 0
 let sky2: Sprite = null
 let Random = 0
 let sky: Sprite = null
+let meteor2: Sprite = null
+let Map = 0
 let Gravity = 0
 let GravityOn = 0
 let Chick: Sprite = null
-let Ground: Sprite = null
+let Ground2: Sprite = null
+let UUDDAA = 0
 let start = 0
 let AABBA = 0
 AABBA = 0
-let Map = 0
 info.setScore(0)
 start = 0
+UUDDAA = 0
 scene.setBackgroundImage(img`
 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
@@ -337,7 +347,7 @@ let kill2 = sprites.create(img`
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
 `, SpriteKind.Enemy)
-Ground = sprites.create(img`
+Ground2 = sprites.create(img`
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
@@ -427,8 +437,14 @@ let kill = sprites.create(img`
 `, SpriteKind.Enemy)
 kill2.setPosition(0, -20)
 Chick.setPosition(76, 88)
-Ground.setPosition(74, 108)
+Ground2.setPosition(74, 108)
 kill.setPosition(0, 117)
+forever(function () {
+    if (start == 1 && Map == 1) {
+        pause(100)
+        meteor2.x += -5
+    }
+})
 forever(function () {
     if (start == 1 && Map == 0) {
         sky = sprites.create(img`
@@ -569,8 +585,14 @@ forever(function () {
     }
 })
 forever(function () {
+    if (start == 1 && Map == 1 && info.score() > 70) {
+        pause(100)
+        meteor_3.x += -5
+    }
+})
+forever(function () {
     if (start == 1) {
-        info.changeScoreBy(1)
+        info.changeScoreBy(10)
         pause(1000)
     }
 })
@@ -762,8 +784,27 @@ forever(function () {
     }
 })
 forever(function () {
-    if (start == 1 && Map == 1) {
-        pause(100)
-        meteor2.x += -5
+    if (start == 1 && Map == 1 && info.score() > 70) {
+        meteor_3 = sprites.create(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . c c c c . . 
+. c c c c c . c c c c c f c c . 
+c c a c c c c c 8 f f c f f c c 
+c a f a a c c a f f c a a f f c 
+c a 8 f a a c a c c c a a a a c 
+c b c f a a a a a c c c c c c c 
+c b b a a c f 8 a c c c 8 c c c 
+. c b b a b c f a a a 8 8 c c . 
+. . . . a a b b b a a 8 a c . . 
+. . . . c b c a a c c b . . . . 
+. . . . b b c c a b b a . . . . 
+. . . . b b a b a 6 a . . . . . 
+. . . . c b b b 6 6 c . . . . . 
+. . . . . c a 6 6 b c . . . . . 
+. . . . . . . c c c . . . . . . 
+`, SpriteKind.Enemy)
+        Random2 = Math.randomRange(0, 100)
+        meteor_3.setPosition(160, Random2)
+        pause(5000)
     }
 })
