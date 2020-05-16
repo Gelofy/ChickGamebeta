@@ -592,7 +592,7 @@ forever(function () {
 })
 forever(function () {
     if (start == 1) {
-        info.changeScoreBy(10)
+        info.changeScoreBy(1)
         pause(1000)
     }
 })
