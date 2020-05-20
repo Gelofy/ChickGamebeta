@@ -23,7 +23,11 @@ namespace myTiles {
 `
 }
 controller.combos.attachCombo("DDULR", function () {
-    music.powerUp.play()
+    if (DDULR == 0) {
+        music.powerUp.play()
+        info.changeScoreBy(5)
+        DDULR = 1
+    }
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (start == 1) {
@@ -177,7 +181,7 @@ controller.combos.attachCombo("AABBA", function () {
 controller.combos.attachCombo("uuddaa", function () {
     if (UUDDAA == 0) {
         music.baDing.play()
-        info.changeScoreBy(1)
+        info.changeScoreBy(10)
         UUDDAA = 1
     }
 })
@@ -202,8 +206,10 @@ let Chick: Sprite = null
 let Ground2: Sprite = null
 let UUDDAA = 0
 let start = 0
+let DDULR = 0
 let AABBA = 0
 AABBA = 0
+DDULR = 0
 info.setScore(0)
 start = 0
 UUDDAA = 0
