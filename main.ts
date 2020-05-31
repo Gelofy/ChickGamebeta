@@ -139,7 +139,7 @@ c b d c d 5 5 b 5 5 5 5 5 5 b .
 . . . c c c c c c c c b b . . . 
 . . . . . . . . . . . . . . . . 
 `],
-        100,
+        80,
         false
         )
     }
@@ -192,6 +192,9 @@ controller.anyButton.onEvent(ControllerButtonEvent.Pressed, function () {
         pause(10)
     }
 })
+let poop: Sprite = null
+let kitten: Sprite = null
+let cookie: Sprite = null
 let meteor: Sprite = null
 let meteor_3: Sprite = null
 let Random2 = 0
@@ -784,6 +787,11 @@ forever(function () {
     }
 })
 forever(function () {
+    if (info.score() == 100) {
+        Map = 2
+    }
+})
+forever(function () {
     if (start == 1 && Map == 1) {
         pause(100)
         meteor.x += -5
@@ -811,6 +819,102 @@ c b b a a c f 8 a c c c 8 c c c
 `, SpriteKind.Enemy)
         Random2 = Math.randomRange(0, 100)
         meteor_3.setPosition(160, Random2)
+        pause(5000)
+    }
+})
+forever(function () {
+    if (start == 1 && Map == 2) {
+        pause(100)
+        cookie.x += -5
+    }
+})
+forever(function () {
+    if (start == 1 && Map == 2) {
+        pause(100)
+        kitten.x += -5
+    }
+})
+forever(function () {
+    if (start == 1 && Map == 2 && info.score() > 70) {
+        cookie = sprites.create(img`
+. . . . . f f f f f f . . . . . 
+. . f f f 4 4 4 4 4 4 f f f . . 
+. f f e 4 4 4 4 4 e 4 4 4 f f . 
+. f 4 4 4 4 4 4 4 4 4 4 4 4 f . 
+. f 4 4 4 4 e 4 4 4 e e 4 4 f . 
+f 4 4 4 f f 4 4 4 4 f f 4 4 4 f 
+f 4 e f d f f 4 4 f d f f 4 4 f 
+f 4 4 f f f f 4 4 f f f f 4 4 f 
+f 4 4 4 f f 4 4 4 4 f f 4 4 4 f 
+f 4 4 4 4 4 4 4 4 4 4 4 4 4 4 f 
+f 4 4 4 3 4 f 4 f 4 4 3 4 4 4 f 
+. f 4 e 4 4 4 f 4 4 4 4 4 4 f . 
+. f 4 4 4 4 4 4 4 4 4 4 4 4 f . 
+. f f 4 4 e 4 4 4 4 e 4 4 f f . 
+. . f f f 4 4 4 4 4 4 f f f . . 
+. . . . . f f f f f f . . . . . 
+`, SpriteKind.Enemy)
+        Random2 = Math.randomRange(0, 100)
+        cookie.setPosition(160, Random2)
+        pause(5000)
+    }
+})
+forever(function () {
+    if (start == 1 && Map == 2) {
+        pause(100)
+        poop.x += -10
+    }
+})
+forever(function () {
+    if (start == 1 && Map == 2) {
+        kitten = sprites.create(img`
+. . . . . . . f f f f f f f f f f f f f f f f . . . . . . . . 
+. . . . . . f d d d d d d d d d d d d d d d d f . . . . . . . 
+. . . . . f d d d 3 3 3 3 3 3 3 3 3 3 3 3 d d d f . . . . . . 
+. . . . . f d d 3 3 3 3 3 a 3 3 a 3 3 3 3 3 d d f . . . . . . 
+. . . . . f d 3 3 3 3 3 3 3 3 3 3 3 3 3 a 3 3 d f . . . . . . 
+. . f f . f d 3 3 a 3 3 f f 3 3 3 3 3 3 3 3 3 d f . . . . . . 
+. f b b f f d 3 3 3 3 f b b f 3 3 3 3 3 3 3 3 d f . . . . . . 
+. f b b b f d 3 3 3 f b b b f 3 3 a 3 3 3 3 3 d f . . f f f f 
+. f b b b b f f f f b b b b f 3 3 3 3 3 3 3 3 d f . f f b b f 
+. f b b b b b b b b b b b b f 3 3 3 3 a 3 3 3 d f f f b b f f 
+f b b b b b b b b b b b b b b f a 3 3 3 3 a 3 d f f b b f f . 
+f b b f 1 b b b b b f 1 b b b f 3 3 3 3 3 3 3 d f b b f f . . 
+f b b f f b f b b b f f b b b f 3 3 3 3 3 3 3 d f f f f . . . 
+f 3 3 b b b b b b b b b 3 3 b f 3 3 a 3 3 3 3 d f f . . . . . 
+f 3 3 b f b b f b b f b 3 3 b f 3 3 3 3 a 3 d d f . . . . . . 
+. f b b f f f f f f f b b b f 3 3 3 3 3 3 d d d f . . . . . . 
+. . f b b b b b b b b b b f d d d d d d d d d f f f . . . . . 
+. . . f f f f f f f f f f f f f f f f f f f f b b b f . . . . 
+. . . . f b b f . f b b f . . . . f b b f . f f b b f . . . . 
+. . . . . f f . . f f f . . . . . . f f f . . f f f f . . . . 
+`, SpriteKind.Enemy)
+        Random = Math.randomRange(0, 100)
+        kitten.setPosition(160, Random)
+        pause(5000)
+    }
+})
+forever(function () {
+    if (start == 1 && Map == 2) {
+        poop = sprites.create(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . 2 2 4 4 5 5 7 7 8 8 a a . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.Enemy)
+        poop.setPosition(155, Random)
         pause(5000)
     }
 })
